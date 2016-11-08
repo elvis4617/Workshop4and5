@@ -66,12 +66,6 @@ didUserLike() {
 return liked;
 }
 
-render() {
-
-    // Skipping the first part of this method, which is unchanged.
-
-    // The rest of this method is unchanged
-}
   render() {
     var likeButtonText = "Like";
     if (this.didUserLike()) {
@@ -114,7 +108,7 @@ render() {
               <li>
                 <a href="#" onClick={(e) => this.handleLikeClick(e)}>
                   <span className="glyphicon glyphicon-thumbs-up"></span>
-                    {likeButtonText}
+                  <span> {likeButtonText}</span>
                 </a>
               </li>
               <li>
@@ -145,8 +139,9 @@ render() {
               // i is comment's index in comments array
               return (
                 <Comment key={i}
-                         author={comment.author}
-                         postDate={comment.postDate}>
+                         feedItemId={this.state._id}
+                         commentIndex={i}
+                         data={comment}>
                   {comment.contents}
                 </Comment>
               );
